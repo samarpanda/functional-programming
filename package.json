@@ -1,0 +1,36 @@
+{
+  "name": "functional-programming",
+  "version": "0.0.1",
+  "description": "Learn function programming concepts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --inline --no-info --content-base excercises"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samarpanda/functional-programming.git"
+  },
+  "keywords": [
+    "functional programming",
+    "curry",
+    "compose",
+    "monards",
+    "functor"
+  ],
+  "author": "Samar Panda <samar.panda84@gmail.com> (http://samarpanda.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samarpanda/functional-programming/issues"
+  },
+  "homepage": "https://github.com/samarpanda/functional-programming",
+  "dependencies": {
+    "json-loader": "^0.5.2",
+    "node-libs-browser": "^0.5.2",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "devDependencies": {
+    "react": "^0.13.3"
+  }
+}
