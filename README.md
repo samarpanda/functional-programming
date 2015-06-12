@@ -72,11 +72,6 @@ console.log(revCap("samar"));//"ramaS"
 
 Try an example [demo jsbin](http://jsbin.com/watisu/1/edit?js,console)
 
-## Continue from here: 
-
-- http://jsbin.com/jevag/edit?js,console  
-- http://eddmann.com/posts/ten-ways-to-reverse-a-string-in-javascript/
-
 ### Functor
 
 ### Monards
