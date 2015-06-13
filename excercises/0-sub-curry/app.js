@@ -16,9 +16,8 @@ function sub_curry (fn) {
 	return f;
 }
 
-require('./tests.js').run();
+exports.subCurry = sub_curry;
 
-// console.log(fn("a", "b", "c"));
-// console.log(sub_curry(fn, "a")("b", "c"));
-// console.log(sub_curry(fn, "a", "b")("c"));
+//Run result
+require('./tests.js').run();
 
