@@ -16,11 +16,9 @@ function sub_curry (fn) {
 	return f;
 }
 
-var fn = function(a, b, c) {
-	return [a, b, c];
-};
+require('./tests.js').run();
 
-console.log(fn("a", "b", "c"));
-console.log(sub_curry(fn, "a")("b", "c"));
-console.log(sub_curry(fn, "a", "b")("c"));
+// console.log(fn("a", "b", "c"));
+// console.log(sub_curry(fn, "a")("b", "c"));
+// console.log(sub_curry(fn, "a", "b")("c"));
 

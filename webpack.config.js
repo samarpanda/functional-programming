@@ -9,7 +9,7 @@ makeIndex();
 module.exports = {
 	devtool: 'eval',
 
-	entry: fs.readdirSync(CODE).reduce(function(entries, dir){
+	entry: fs.readdirSync(CODE).reduce(function (entries, dir){
 		if(isDirectory(path.join(CODE, dir)))
 			entries[dir] = path.join(CODE, dir, 'app.js');
 		return entries;
@@ -24,7 +24,8 @@ module.exports = {
 
 	module: {
 		loaders: [
-		  { test: /\.json$/, loaders: 'json-loader' }
+		  { test: /\.json$/, exclude: /node_modules/, loader: 'json-loader' },
+		  { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
 		]
 	},
 
@@ -37,7 +38,7 @@ function makeIndex () {
 	var list = fs.readdirSync(CODE).filter(function(dir){
 		return isDirectory(path.join(CODE, dir));
 	}).map(function(dir){
-		return React.DOM.li({}, React.DOM.a({href: '/'+dir}, dir.replace(/-/g, ' ')));
+		return React.DOM.li({key:dir}, React.DOM.a({href: '/'+dir}, dir.replace(/-/g, ' ')));
 	});
 	var markup = React.renderToStaticMarkup((
 		React.DOM.html({},
