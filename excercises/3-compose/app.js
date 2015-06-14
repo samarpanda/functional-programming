@@ -8,6 +8,30 @@ function compose(g, f){
 }
 
 /**
+ * Curry function
+ */
+var curry = function(fn){
+	return function(){
+		if(fn.length > arguments.length){
+			var slice = Array.prototype.slice;
+			var args = slice.apply(arguments);
+			return function(){
+				return fn.apply(null, args.concat(slice.apply(arguments)));
+			};
+		}else
+		  return fn.apply(null, arguments);
+	};
+}
+
+/**
+ * logging composable function
+ */
+function log(x){
+ console.log('logging: ', x);
+ return x;
+}
+
+/**
  * Reverse String
  */
 function reverse(s){
@@ -21,10 +45,22 @@ function properNoun(s){
  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-
 var revCap = compose(reverse, properNoun);
 console.log(revCap("samar"));
 
+/**
+ * Get property of object
+ */
+var get = curry(function(property, object) {
+	return object[property];
+});
+
+/**
+ * Map using curry
+ */
+var cmap = curry(function(fn, arr){
+	return arr.map(fn);
+});
 
 var articles = [
   {
@@ -45,6 +81,8 @@ var articles = [
   }
 ];
 
-var names = _.map(
+var names = cmap(
   compose(get('name'), get('author'))
 );
+
+console.log(names(articles));

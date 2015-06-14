@@ -32,6 +32,17 @@ var curry = function(fn){
 	};
 }
 
+var curry_map = curry(function(fn, arr){
+	return arr.map(fn);
+});
+
+/**
+ * fork
+ */
+var curry_fork = curry(function(lastly, f, g, x){
+	return lastly(f(x), g(x));
+});
+
 /**
  * Compose function
  */
@@ -40,10 +51,3 @@ function compose(g, f){
   return g(f(x));
  }
 }
-
-/**
- * fork
- */
-var fork = curry(function(lastly, f, g, x){
-	return lastly(f(x), g(x));
-});
