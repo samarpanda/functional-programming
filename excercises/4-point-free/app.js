@@ -45,6 +45,20 @@ var substring = curry(function(start, end, str){
 });
 
 /**
+ * Return number of items from an Array
+ */
+var take = curry(function(num, arr){
+	return arr.slice(0, num);
+});
+
+/**
+ * Return the head item from an Array
+ */
+var head = curry(function(arr){
+	return arr.slice(0, 1);
+});
+
+/**
  * Map using curry
  */
 var cmap = curry(function(fn, arr){
@@ -76,9 +90,18 @@ console.log(avg([1,2,3,4,5]));
 
 var arrayByDashes = split("-");
 // console.log(arrayByDashes("What-Are-You-Up-To"));
-// var firstChar = substring(0, 1);
 
-// var firstUpper = compose(_.toUpper, firstChar);
-// var getFirstUpperOfDashes = compose(firstUpper, arrayByDashes);
-//var app = compose(getFirstUpperOfDashes);
-// console.log(getFirstUpperOfDashes("What-Are-You-Up-To"));
+var firstChar = substring(0, 1);
+// console.log(firstChar("What-Are-You-Up-To"));
+
+var firstUpper = compose(_.toUpper, firstChar);
+// console.log(firstUpper("What-Are-You-Up-To"));
+
+var getFirstUpperOfDashes = compose(cmap(firstUpper), arrayByDashes);
+console.log(getFirstUpperOfDashes("What-Are-You-Up-To"));
+
+var inneffecientHead = compose(head, take(2));
+// console.log(inneffecientHead("What-Are-You-Up-To"));
+
+var app = compose(inneffecientHead, getFirstUpperOfDashes);
+console.log(app("What-Are-You-Up-To"));
