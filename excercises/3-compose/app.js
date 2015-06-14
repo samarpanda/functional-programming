@@ -24,3 +24,27 @@ function properNoun(s){
 
 var revCap = compose(reverse, properNoun);
 console.log(revCap("samar"));
+
+
+var articles = [
+  {
+    title: 'Everything Sucks',
+    url: 'http://do.wn/sucks.html',
+    author: {
+      name: 'Debbie Downer',
+      email: 'debbie@do.wn'
+    }
+  },
+  {
+    title: 'If You Please',
+    url: 'http://www.geocities.com/milq',
+    author: {
+      name: 'Caspar Milquetoast',
+      email: 'hello@me.com'
+    }
+  }
+];
+
+var names = _.map(
+  compose(get('name'), get('author'))
+);

@@ -15,6 +15,13 @@ var curry = function(fn){
 }
 
 /**
+ * fork
+ */
+var fork = curry(function(lastly, f, g, x){
+	return lastly(f(x), g(x));
+});
+
+/**
  * Utility function
  */
 var _ = {
@@ -30,13 +37,6 @@ var _ = {
 		return x.length;
 	}
 }
-
-/**
- * fork
- */
-var fork = curry(function(lastly, f, g, x){
-	return lastly(f(x), g(x));
-});
 
 var avg = fork(_.divide, _.sum, _.size);
 console.log(avg([1,2,3,4,5]));
