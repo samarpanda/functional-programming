@@ -72,6 +72,56 @@ console.log(revCap("samar"));//"ramaS"
 
 Try an example [demo jsbin](http://jsbin.com/watisu/1/edit?js,console)
 
+### Category Theory
+
+- compose  
+- identity  
+
+#### Category Laws
+
+- left identity: `compose(id, f) == f`  
+- right identity: `compose(f, id) == f`  
+- associativity: `compose(compose(f, g), h) == compose(f,compose(g,h))`  
+
+
+#### Some conventions
+
+Objects:
+
+```js
+var _Container = function(val){
+	this.val = val;
+}
+
+var Container = function(x){
+	return new _Container(x);
+}
+
+Container(3);
+//=> _Container{val:3}
+
+var _Container.prototype.map = function(f){
+	return Container(f(this.val));
+}
+
+Container("ram").map(capitalize);
+//=> Container("Ram");
+
+```
+
+
 ### Functor
 
+An object or data structure you can map over.
+
+functions: map
+
+1. maybe  
+
+
 ### Monards
+
+## Benifits of Functional programming:
+
+- Nulls, Callbacks, Errors, Side effects
+
