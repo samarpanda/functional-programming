@@ -10,8 +10,6 @@ _Container.prototype.map = function(f){
 	return new Container(f(this.val));
 }
 
-var c = Container(2);
-var d = c.map(function(x){
-	return x+2;
-});
-console.log(d);
+exports.Container = Container;
+
+require('./tests.js').run();
