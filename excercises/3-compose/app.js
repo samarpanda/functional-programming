@@ -1,27 +1,5 @@
-/**
- * Compose function
- */
-function compose(g, f){
- return function(x){
-  return g(f(x));
- }
-}
-
-/**
- * Curry function
- */
-var curry = function(fn){
-	return function(){
-		if(fn.length > arguments.length){
-			var slice = Array.prototype.slice;
-			var args = slice.apply(arguments);
-			return function(){
-				return fn.apply(null, args.concat(slice.apply(arguments)));
-			};
-		}else
-		  return fn.apply(null, arguments);
-	};
-}
+var compose = require('./compose').compose;
+var curry = require('../1-curry/curry').curry;
 
 /**
  * logging composable function
