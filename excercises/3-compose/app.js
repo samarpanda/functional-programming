@@ -64,3 +64,7 @@ var names = cmap(
 );
 
 console.log(names(articles));
+
+exports.get = get;
+exports.cmap = cmap;
+require('./tests.js').run();
