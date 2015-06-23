@@ -67,4 +67,7 @@ console.log(names(articles));
 
 exports.get = get;
 exports.cmap = cmap;
+exports.log = log;
+exports.reverse = reverse;
+exports.properNoun = properNoun;
 require('./tests.js').run();

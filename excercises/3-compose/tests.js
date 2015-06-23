@@ -18,5 +18,5 @@ var articles = [
 ];
 
 exports.run = () => {
-  //console.log("Run >> ");
+
 };
