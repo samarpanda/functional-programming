@@ -1,3 +1,7 @@
+var assert = require('../assert');
+var app = require('./app');
+
+
 var articles = [
   {
     title: 'Everything Sucks',
@@ -18,5 +22,5 @@ var articles = [
 ];
 
 exports.run = () => {
-
+  assert(true, "Test run ...");
 };
