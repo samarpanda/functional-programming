@@ -23,8 +23,10 @@ function properNoun(s){
  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
+/**
+ * Composing string utility functions
+ */
 var revCap = compose(reverse, properNoun);
-console.log(revCap("samar"));
 
 /**
  * Get property of object
@@ -40,34 +42,10 @@ var cmap = curry(function(fn, arr){
 	return arr.map(fn);
 });
 
-var articles = [
-  {
-    title: 'Everything Sucks',
-    url: 'http://do.wn/sucks.html',
-    author: {
-      name: 'Debbie Downer',
-      email: 'debbie@do.wn'
-    }
-  },
-  {
-    title: 'If You Please',
-    url: 'http://www.geocities.com/milq',
-    author: {
-      name: 'Caspar Milquetoast',
-      email: 'hello@me.com'
-    }
-  }
-];
-
-var names = cmap(
-  compose(get('name'), get('author'))
-);
-
-console.log(names(articles));
-
 exports.get = get;
 exports.cmap = cmap;
 exports.log = log;
 exports.reverse = reverse;
 exports.properNoun = properNoun;
+exports.revCap = revCap;
 require('./tests.js').run();
