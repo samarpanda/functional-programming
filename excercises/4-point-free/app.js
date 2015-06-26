@@ -1,27 +1,5 @@
-/**
- * Curry function
- */
-var curry = function(fn){
-	return function(){
-		if(fn.length > arguments.length){
-			var slice = Array.prototype.slice;
-			var args = slice.apply(arguments);
-			return function(){
-				return fn.apply(null, args.concat(slice.apply(arguments)));
-			};
-		}else
-		  return fn.apply(null, arguments);
-	};
-}
-
-/**
- * Compose function
- */
-function compose(g, f){
- return function(x){
-  return g(f(x));
- }
-}
+var curry = require('../1-curry/curry').curry
+var compose = require('../3-compose/compose').compose;
 
 /**
  * fork
@@ -85,6 +63,14 @@ var _ = {
 	}
 }
 
+exports.fork = fork;
+exports.split = split;
+exports.substring = substring;
+exports.take = take;
+exports.head = head;
+exports.cmap = cmap;
+exports._ = _;
+
 var avg = fork(_.divide, _.sum, _.size);
 console.log(avg([1,2,3,4,5]));
 
@@ -98,10 +84,12 @@ var firstUpper = compose(_.toUpper, firstChar);
 // console.log(firstUpper("What-Are-You-Up-To"));
 
 var getFirstUpperOfDashes = compose(cmap(firstUpper), arrayByDashes);
-console.log(getFirstUpperOfDashes("What-Are-You-Up-To"));
+// console.log(getFirstUpperOfDashes("What-Are-You-Up-To"));
 
 var inneffecientHead = compose(head, take(2));
 // console.log(inneffecientHead("What-Are-You-Up-To"));
 
 var app = compose(inneffecientHead, getFirstUpperOfDashes);
-console.log(app("What-Are-You-Up-To"));
+// console.log(app("What-Are-You-Up-To"));
+
+require('./tests.js').run();
