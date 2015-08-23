@@ -29,5 +29,5 @@ exports.run = () => {
 	console.log(inneffecientHead("What-Are-You-Up-To"));
 
 	var check = compose(inneffecientHead, getFirstUpperOfDashes);
-console.log(check("What-Are-You-Up-To"));
+	console.log(check("What-Are-You-Up-To"));
 };

@@ -2,6 +2,11 @@
 
 ### Curry
 
+Functions are nouns. A goal of functional programming is to write functions that take in a lot of arguments, but only give them one argument at a time. This process is called `currying`.
+
+> Thunkify = 1 step curry
+[Separate work from control flow using functional programming](http://bahmutov.calepin.co/separate-work-from-control-flow-using-functional-programming.html)
+
 ```js
 /**
  * Curry function
@@ -120,6 +125,12 @@ functions: map
 
 
 ### Monards
+
+
+## What is Higher-Order Functions?
+
+Functions that operate on other functions, either by taking them as arguments or by returning them, are called higher-order functions. [...more](http://eloquentjavascript.net/05_higher_order.html#h_xxCc98lOBK)
+
 
 ## Benifits of Functional programming:
 
