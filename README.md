@@ -136,3 +136,7 @@ Functions that operate on other functions, either by taking them as arguments or
 
 - Nulls, Callbacks, Errors, Side effects
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/samarpanda/functional-programming/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
