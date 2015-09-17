@@ -46,3 +46,5 @@ var addCurry = autoCurry(add);
 var add1 = addCurry(1);
 //console.log(add1);
 console.log(add1(2));
+
+exports.autoCurry = autoCurry;
